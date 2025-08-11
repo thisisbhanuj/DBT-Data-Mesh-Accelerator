@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: tpch_sf1
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    tables:
+      - name: customer
+      - name: orders
+      - name: lineitem
+      - name: nation
+      - name: region
+      - name: supplier
+      - name: part
+  - name: tpcds_sf10tcl
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF10TCL
+    tables:
+      - name: customer
+      - name: customer_demographics
+      - name: date_dim
+      - name: item
+      - name: store
+      - name: store_sales
+      - name: web_sales
+      - name: catalog_sales
+      - name: store_returns
+      - name: web_returns
+      - name: catalog_returns
+      - name: promotion
+      - name: inventory
+      - name: warehouse
+      - name: household_demographics
+      - name: income_band
+      - name: call_center
+      - name: web_page
+      - name: web_site
+      - name: time_dim
+      - name: ship_mode

@@ -1,0 +1,144 @@
+version: 2
+models:
+  - name: customer_orders
+    description: "Customer orders with total price and order date for completed orders."
+    columns:
+      - name: C_NAME
+        data_tests:
+          - not_null
+      - name: O_TOTALPRICE
+        data_tests:
+          - not_null
+      - name: O_ORDERDATE
+        data_tests:
+          - not_null
+
+  - name: customer_orders_v2
+    description: "Alternate customer orders for completed orders."
+    columns:
+      - name: C_NAME
+        data_tests:
+          - not_null
+      - name: O_TOTALPRICE
+        data_tests:
+          - not_null
+      - name: O_ORDERDATE
+        data_tests:
+          - not_null
+
+  - name: customer_order_lineitems
+    description: "Line items for customer orders."
+    columns:
+      - name: C_NAME
+        data_tests:
+          - not_null
+      - name: O_ORDERDATE
+        data_tests:
+          - not_null
+      - name: L_PARTKEY
+        data_tests:
+          - not_null
+      - name: L_QUANTITY
+        data_tests:
+          - not_null
+      - name: L_EXTENDEDPRICE
+        data_tests:
+          - not_null
+
+  - name: regional_sales_summary
+    description: "Sales summary aggregated by region and nation."
+    columns:
+      - name: REGION
+        data_tests:
+          - not_null
+      - name: NATION
+        data_tests:
+          - not_null
+      - name: TOTAL_REVENUE
+        data_tests:
+          - not_null
+
+  - name: high_value_customers
+    description: "Customers with total spend greater than 100,000."
+    columns:
+      - name: C_NAME
+        data_tests:
+          - not_null
+      - name: TOTAL_SPENT
+        data_tests:
+          - not_null
+
+  - name: supplier_part_distribution
+    description: "Suppliers and parts they distribute with quantity and price."
+    columns:
+      - name: S_NAME
+        data_tests:
+          - not_null
+      - name: P_NAME
+        data_tests:
+          - not_null
+      - name: L_QUANTITY
+        data_tests:
+          - not_null
+      - name: L_EXTENDEDPRICE
+        data_tests:
+          - not_null
+
+  - name: customer_order_lineitems_summary
+    description: "Summary of total items and amount spent per customer."
+    columns:
+      - name: C_NAME
+        data_tests:
+          - not_null
+      - name: total_items
+        data_tests:
+          - not_null
+      - name: total_spent
+        data_tests:
+          - not_null
+
+  - name: top_5_customers_by_spend
+    description: "Top 5 customers ranked by total spending."
+    columns:
+      - name: C_NAME
+        data_tests:
+          - not_null
+      - name: TOTAL_SPENT
+        data_tests:
+          - not_null
+
+  - name: asian_region_revenue_summary
+    description: "Revenue summary for Asian region nations."
+    columns:
+      - name: NATION
+        data_tests:
+          - not_null
+      - name: TOTAL_REVENUE
+        data_tests:
+          - not_null
+
+  - name: supplier_summary
+    description: "Summary of suppliers, number of unique parts, and quantity supplied."
+    columns:
+      - name: S_NAME
+        data_tests:
+          - not_null
+      - name: unique_parts
+        data_tests:
+          - not_null
+      - name: total_quantity_supplied
+        data_tests:
+          - not_null
+
+  - name: view_top_customers_with_items
+    description: "Top customers with total spent and number of items ordered."
+    columns:
+      - name: C_NAME
+        data_tests:
+          - not_null
+      - name: TOTAL_SPENT
+        data_tests:
+          - not_null
+      - name: total_items
+        data_tests:
+          - not_null

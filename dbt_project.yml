@@ -1,0 +1,50 @@
+name: Data_Pipeline_Admin_DBT
+version: 1.0.0
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'Data_Pipeline_Admin_DBT'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# directories to be removed by `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# https://docs.getdbt.com/reference/project-configs/quoting
+# On Snowflake, quoting is set to false by default. 
+# Whereas most databases will lowercase unquoted identifiers, 
+# Snowflake will uppercase unquoted identifiers.
+# If a model name is lowercased and quoted, then it cannot be referred to without quotes
+# We can override at granular level as needed.
+quoting:
+  database: false
+  schema: false
+  identifier: false
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+# These settings can be overridden in the individual model
+# files using the `{{ config(...) }}` macro.
+models:
+  +on_schema_change: "sync_all_columns" # Enable additional control when incremental model columns change. 
+  Data_Pipeline_Admin_DBT:
+    +materialized: view
+    sources:
+      lineage_schema:
+        +schema: LINEAGE_SCHEMA
+        +materialized: table
+      tpcds:
+        +schema: TPCDS
+        +materialized: view
+
+

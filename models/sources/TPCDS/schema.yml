@@ -1,0 +1,60 @@
+version: 2
+models:
+  - name: customer
+    description: "Customer base view from TPCDS sample data."
+    columns:
+      - name: C_CUSTOMER_SK
+        data_tests:
+          - not_null
+          - unique
+
+  - name: customer_demographics
+    description: "Demographics of customers."
+    columns:
+      - name: CD_DEMO_SK
+        data_tests:
+          - not_null
+          - unique
+
+  - name: date_dim
+    description: "Date Dimension view."
+    columns:
+      - name: D_DATE_SK
+        data_tests:
+          - not_null
+          - unique
+
+  - name: item
+    description: "Product/Item catalog."
+    columns:
+      - name: I_ITEM_SK
+        data_tests:
+          - not_null
+          - unique
+
+  - name: store
+    description: "Store Dimension."
+    columns:
+      - name: S_STORE_SK
+        data_tests:
+          - not_null
+          - unique
+
+  - name: store_sales
+    description: "Store Sales Fact."
+    columns:
+      - name: SS_SOLD_DATE_SK
+        data_tests:
+          - not_null
+      - name: SS_CUSTOMER_SK
+        data_tests:
+          - not_null
+      - name: SS_ITEM_SK
+        data_tests:
+          - not_null
+      - name: SS_STORE_SK
+        data_tests:
+          - not_null
+      - name: SS_SALES_PRICE
+        data_tests:
+          - not_null
