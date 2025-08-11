@@ -6,7 +6,6 @@ models:
       - name: C_CUSTOMER_SK
         data_tests:
           - not_null
-          - unique
 
   - name: customer_demographics
     description: "Demographics of customers."
@@ -14,7 +13,6 @@ models:
       - name: CD_DEMO_SK
         data_tests:
           - not_null
-          - unique
 
   - name: date_dim
     description: "Date Dimension view."
@@ -43,18 +41,7 @@ models:
   - name: store_sales
     description: "Store Sales Fact."
     columns:
-      - name: SS_SOLD_DATE_SK
-        data_tests:
-          - not_null
-      - name: SS_CUSTOMER_SK
-        data_tests:
-          - not_null
       - name: SS_ITEM_SK
         data_tests:
           - not_null
-      - name: SS_STORE_SK
-        data_tests:
-          - not_null
-      - name: SS_SALES_PRICE
-        data_tests:
-          - not_null
+

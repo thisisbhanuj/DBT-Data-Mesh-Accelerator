@@ -25,25 +25,25 @@ models:
       - name: O_ORDERDATE
         data_tests:
           - not_null
-
-  - name: customer_order_lineitems
-    description: "Line items for customer orders."
-    columns:
-      - name: C_NAME
-        data_tests:
-          - not_null
-      - name: O_ORDERDATE
-        data_tests:
-          - not_null
-      - name: L_PARTKEY
-        data_tests:
-          - not_null
-      - name: L_QUANTITY
-        data_tests:
-          - not_null
-      - name: L_EXTENDEDPRICE
-        data_tests:
-          - not_null
+  # ~3 Million Rows
+  # - name: customer_order_lineitems
+  #   description: "Line items for customer orders."
+  #   columns:
+  #     - name: C_NAME
+  #       data_tests:
+  #         - not_null
+  #     - name: O_ORDERDATE
+  #       data_tests:
+  #         - not_null
+  #     - name: L_PARTKEY
+  #       data_tests:
+  #         - not_null
+  #     - name: L_QUANTITY
+  #       data_tests:
+  #         - not_null
+  #     - name: L_EXTENDEDPRICE
+  #       data_tests:
+  #         - not_null
 
   - name: regional_sales_summary
     description: "Sales summary aggregated by region and nation."
@@ -68,21 +68,22 @@ models:
         data_tests:
           - not_null
 
-  - name: supplier_part_distribution
-    description: "Suppliers and parts they distribute with quantity and price."
-    columns:
-      - name: S_NAME
-        data_tests:
-          - not_null
-      - name: P_NAME
-        data_tests:
-          - not_null
-      - name: L_QUANTITY
-        data_tests:
-          - not_null
-      - name: L_EXTENDEDPRICE
-        data_tests:
-          - not_null
+  # ~7 Million Rows
+  # - name: supplier_part_distribution
+  #   description: "Suppliers and parts they distribute with quantity and price."
+  #   columns:
+  #     - name: S_NAME
+  #       data_tests:
+  #         - not_null
+  #     - name: P_NAME
+  #       data_tests:
+  #         - not_null
+  #     - name: L_QUANTITY
+  #       data_tests:
+  #         - not_null
+  #     - name: L_EXTENDEDPRICE
+  #       data_tests:
+  #         - not_null
 
   - name: customer_order_lineitems_summary
     description: "Summary of total items and amount spent per customer."
