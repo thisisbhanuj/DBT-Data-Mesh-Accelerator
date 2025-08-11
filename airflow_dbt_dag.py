@@ -20,7 +20,7 @@ with DAG(
     schedule_interval="@daily",
     start_date=days_ago(1),
     catchup=False,
-    tags=["dbt", "etl"],
+    tags=["dbt", "bhanuj", "Data Observability", "analytics-engineering"],
 ) as dag:
 
     dbt_run = BashOperator(
